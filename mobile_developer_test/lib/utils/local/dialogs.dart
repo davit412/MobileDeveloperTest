@@ -23,6 +23,65 @@ abstract class Dialogs {
       ),
     );
   }
+
+  static int option(BuildContext context) {
+    int value = 0;
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            contentPadding: const EdgeInsets.all(0),
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      value = 1;
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(width: 1, color: Colors.blue),
+                        ),
+                      ),
+                      child: Row(
+                        children: const [
+                          Expanded(
+                            child: Text("Tomar una foto"),
+                          ),
+                          Icon(Icons.camera_alt),
+                        ],
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(width: 1, color: Colors.redAccent),
+                        ),
+                      ),
+                      child: Row(
+                        children: const [
+                          Expanded(
+                            child: Text("Cancelar"),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+    return value;
+  }
 }
 
 abstract class ProgressDialog {
