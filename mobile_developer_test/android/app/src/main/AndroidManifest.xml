@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:usesCleartextTraffic="true"
-        android:label="mobile_developer_test"
+        android:label="Mobile Developer Test"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
