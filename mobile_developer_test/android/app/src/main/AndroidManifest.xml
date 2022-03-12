@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ingdavid.mobile_developer_test">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
+        android:usesCleartextTraffic="true"
         android:label="mobile_developer_test"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
