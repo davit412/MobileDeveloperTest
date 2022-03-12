@@ -23,19 +23,23 @@ class _CamarePageState extends State<CamarePage> {
   Widget build(BuildContext context) {
     final Resposive respon = Resposive(context);
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Center(
+          child: Text(
+            "TOMAR FOTO",
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w300,
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           const Padding(
             padding: EdgeInsets.all(5),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                "TOMAR FOTO",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-              ),
-            ],
           ),
           Row(
             children: [

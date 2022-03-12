@@ -37,6 +37,9 @@ dependencies:
   freezed: ^1.1.1
   freezed_annotation: ^1.1.0
   image_picker: ^0.8.4
+  http: ^0.13.4
+  get: ^4.6.1
+  hive_flutter: ^1.1.0
  
 
 dev_dependencies:

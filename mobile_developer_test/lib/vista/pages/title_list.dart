@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/meedu.dart';
 import 'package:mobile_developer_test/models/authetication.dart';
+import 'package:mobile_developer_test/utils/local/responsive.dart';
+import 'package:mobile_developer_test/utils/remote/internet_Connect.dart';
+import 'package:mobile_developer_test/utils/remote/wp_api_posts.dart';
 import 'package:mobile_developer_test/vista/routes/route.dart';
 
 class TitleListPage extends StatefulWidget {
@@ -13,9 +16,63 @@ class TitleListPage extends StatefulWidget {
 class _TitleListPageState extends State<TitleListPage> {
   @override
   Widget build(BuildContext context) {
+    final Resposive respon = Resposive(context);
+    final InternetConnect _internetConnect = InternetConnect();
     return Scaffold(
-        body: Center(
-      child: Column(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Center(
+          child: Text(
+            "LISTA DE TITULOS",
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w300,
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
+      body: FutureBuilder(
+          future: apiRestPosts().Pageweb(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            _internetConnect.snackBarInternet();
+            if (snapshot.hasData) {
+              var posts = snapshot.data;
+
+              return ListView.separated(
+                  separatorBuilder: (context, index) => const Divider(),
+                  itemCount: posts.length,
+                  itemBuilder: (context, index) {
+                    Map postList = snapshot.data[index];
+
+                    return GestureDetector(
+                      onTap: () => Navigator.of(context).pushNamed(
+                          RoutesPages.titleInfor,
+                          arguments: postList),
+                      child: Container(
+                        padding: EdgeInsets.all(20),
+                        child: Text(
+                          postList['title'].toString().toUpperCase(),
+                          textDirection: TextDirection.rtl,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    );
+                  });
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
+          }),
+    );
+  }
+}
+
+/*
+
+Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text("titulo"),
@@ -28,6 +85,4 @@ class _TitleListPageState extends State<TitleListPage> {
           ),
         ],
       ),
-    ));
-  }
-}
+*/
