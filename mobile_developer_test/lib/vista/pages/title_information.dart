@@ -1,9 +1,4 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:mobile_developer_test/utils/local/responsive.dart';
-import 'package:mobile_developer_test/utils/remote/internet_Connect.dart';
-import 'package:mobile_developer_test/utils/remote/wp_api_posts.dart';
 
 class TitleInformation extends StatelessWidget {
   const TitleInformation({Key? key}) : super(key: key);

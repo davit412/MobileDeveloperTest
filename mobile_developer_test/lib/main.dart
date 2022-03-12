@@ -1,3 +1,11 @@
+/* 
+elaborado por : Ing David Barriga Garay
+
+Aplicativo con autenticación y registro con firebase, lista de 
+titulos mediante Json, y manejo de camara. 
+
+*/
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -12,6 +20,7 @@ void main() async {
   await Firebase.initializeApp();
   dependencies();
   await Hive.initFlutter();
+  // ignore: unused_local_variable
   var box = await Hive.openBox(apiBox);
   runApp(const MyApp());
 }
@@ -28,7 +37,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: LoginPage(),
+      //Ruta de inicialización.
       initialRoute: RoutesPages.splash,
       navigatorObservers: [
         router.observer,

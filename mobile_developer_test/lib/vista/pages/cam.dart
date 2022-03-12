@@ -1,9 +1,10 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/meedu.dart';
 import 'package:mobile_developer_test/models/authetication.dart';
-import 'package:mobile_developer_test/utils/local/dialogs.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobile_developer_test/utils/local/responsive.dart';
 import 'package:mobile_developer_test/vista/routes/route.dart';
@@ -90,9 +91,7 @@ class _CamarePageState extends State<CamarePage> {
     setState(() {
       if (pickedFile != null) {
         imageFile = File(pickedFile.path);
-      } else {
-        print("No tomo foto");
-      }
+      } else {}
     });
 
     // Navigator.of(context).pop();
